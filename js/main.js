@@ -3,6 +3,7 @@
     var estadosResource = "https://gist.githubusercontent.com/lidia-freitas/4c0fd733dba8ab47aba1/raw/2fdecb636c9eb6619aee91a8a58ecf763d891004/estados.json";
     var ufInicial = 'pr';
 
+
     function iniciaAjax () {
         var objetoAjax = false;
         if(window.XMLHttpRequest){
