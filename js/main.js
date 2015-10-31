@@ -1,8 +1,10 @@
 (function () {
-    var representantesResource = "https://gist.githubusercontent.com/lidia-freitas/638005146a7e7763af98/raw/93320dc7d37d484bee3b16f6ce98577e896ad452/representantes.json";
-    var estadosResource = "https://gist.githubusercontent.com/lidia-freitas/4c0fd733dba8ab47aba1/raw/de0bf86aaa04b0c34787e14beddcf0ef829e4b2d/estados.json";
-    var ufInicial = 'sp';
-
+    var representantesResource = "https://gist.githubusercontent.com/lidia-freitas/638005146a7e7763af98/raw/93320dc7d37d484bee3b16f6ce98577e896ad452/representantes.json",
+        estadosResource = "https://gist.githubusercontent.com/lidia-freitas/4c0fd733dba8ab47aba1/raw/de0bf86aaa04b0c34787e14beddcf0ef829e4b2d/estados.json",
+        ufInicial = 'sc',
+        mapaContainer = document.getElementById('container-mapa'),
+        optionContainer = document.getElementById('select-uf'),
+        represContainer = document.getElementById('container-panels');
 
     function iniciaAjax () {
         var objetoAjax = false;
@@ -43,21 +45,17 @@
     }
 
     function montaUiRepresentantes() {
-        var represContainer = document.getElementById('container-panels'),
-            panelRepres = '';
-
+        var panelRepres = '';
 
         this.forEach(function (repres) {
             var linksFones = '',
-                linksEmails = '',
-                tels = repres.telefones,
-                mails = repres.emails;
+                linksEmails = '';
 
-                tels.forEach(function(tel){
+                repres.telefones.forEach(function(tel){
                     linksFones += '<a href="' + tel.link + '">' + tel.txt +'</a>';
                 });
 
-                mails.forEach(function(mail){
+                repres.emails.forEach(function(mail){
                     linksEmails += '<a href="' + mail.link + '">' + mail.txt +'</a>';
                 });
 
@@ -77,45 +75,35 @@
     }
 
     function montaUiEstados(){
-        var imgEstadoContainer = document.getElementById('container-mapa'),
-            optionContainer = document.getElementById('select-uf'),
-            imgEstado = '',
-            slcOption = '';
+        var tagEstado = '',
+            tagOption = '';
 
         this.forEach(function (uf) {
-            imgEstado += '<span class="uf uf-'+ uf.sigla +'" data-value="'+ uf.sigla +'"></span>';
-            slcOption += '<option value="'+ uf.sigla +'">' + uf.nome + '</option>';
+            tagEstado += '<span class="uf uf-'+ uf.sigla +'" data-value="'+ uf.sigla +'"></span>';
+            tagOption += '<option value="'+ uf.sigla +'">' + uf.nome + '</option>';
         });
 
-        imgEstadoContainer.innerHTML = imgEstado;
-        optionContainer.innerHTML = slcOption;
+        mapaContainer.innerHTML = tagEstado;
+        optionContainer.innerHTML = tagOption;
 
-        var ufAtivo = imgEstadoContainer.getElementsByClassName('uf-' + ufInicial);
-        ufAtivo[0].classList.add('ativo');
-
-        bindClickEvent();
-    }
-
-    function bindClickEvent(){
-        var triggerEstado = document.getElementsByClassName('uf'),
-            triggerOption = document.getElementById('select-uf');
-
+        var triggerEstado = document.getElementsByClassName('uf');
         for (var i = 0; i < triggerEstado.length; i++) {
             triggerEstado[i].onclick = addEvento;
         }
+        optionContainer.onchange = addEvento;
 
-        triggerOption.onchange = addEvento;
+        setaElemAtivo(ufInicial);
+    }
 
-        function addEvento(e) {
-            if (e.type === 'click') {
-                var ufSelecionado = this.dataset.value;
-            }else if(e.type === 'change'){
-                var ufSelecionado = this.value;
-            }
-
-            busca(ufSelecionado);
-            setaElemAtivo(ufSelecionado);
+    function addEvento(e) {
+        if (e.type === 'click') {
+            var ufSelecionado = this.dataset.value;
+        }else if(e.type === 'change'){
+            var ufSelecionado = this.value;
         }
+
+        busca(ufSelecionado);
+        setaElemAtivo(ufSelecionado);
     }
 
     function busca(estadoSelecionado) {
@@ -132,13 +120,14 @@
     }
 
     function setaElemAtivo(ufSelecionado) {
-        var estadoAtivo = document.getElementsByClassName('ativo'),
+        var estadoAtual = document.getElementsByClassName('ativo'),
             estadoSelecionado = document.getElementsByClassName('uf-' + ufSelecionado);
 
-        estadoAtivo[0].classList.remove('ativo');
+        if(estadoAtual.length){
+            estadoAtual[0].classList.remove('ativo');
+        }
         estadoSelecionado[0].classList.add('ativo');
-        document.getElementById('select-uf').value = ufSelecionado;
-
+        optionContainer.value = ufSelecionado;
     }
 
     function init() {
