@@ -1,7 +1,7 @@
 (function () {
-    var representantesResource = "https://gist.githubusercontent.com/lidia-freitas/638005146a7e7763af98/raw/dc78fbc4c81c6857597ff1c8f7c3ccbdd734a851/representantes.json";
-    var estadosResource = "https://gist.githubusercontent.com/lidia-freitas/4c0fd733dba8ab47aba1/raw/2fdecb636c9eb6619aee91a8a58ecf763d891004/estados.json";
-    var ufInicial = 'pr';
+    var representantesResource = "https://gist.githubusercontent.com/lidia-freitas/638005146a7e7763af98/raw/93320dc7d37d484bee3b16f6ce98577e896ad452/representantes.json";
+    var estadosResource = "https://gist.githubusercontent.com/lidia-freitas/4c0fd733dba8ab47aba1/raw/de0bf86aaa04b0c34787e14beddcf0ef829e4b2d/estados.json";
+    var ufInicial = 'sp';
 
 
     function iniciaAjax () {
@@ -44,26 +44,33 @@
 
     function montaUiRepresentantes() {
         var represContainer = document.getElementById('container-panels'),
-            panelRepres = '',
-            linksFones = '',
-            linksEmails = '';
+            panelRepres = '';
+
 
         this.forEach(function (repres) {
-            panelRepres += '<div class="panel panel-default"> \
-                <div class="panel-heading">' + repres.titulo + '</div> \
-                <div class="panel-body"> \
-                    <p class="endereco-representante">' + repres.endereco + '</p> \
-                    <p class="telefones-representante">' + linksFones + '</p> \
-                    <p class="emails-representante"> ' + linksEmails + '</p> \
-                </div> \
-            </div>';
+            var linksFones = '',
+                linksEmails = '',
+                tels = repres.telefones,
+                mails = repres.emails;
 
-            for(var i = 0; i < repres.telefones.length; i++){
-                linksFones += '<a href="' + repres.telefones[i].link + '">' + repres.telefones[i].txt +'</a>';
-            }
-            for(var i = 0; i < repres.emails.length; i++){
-                linksEmails += '<a href="' + repres.emails[i].link + '">' + repres.emails[i].txt +'</a>';
-            }
+                tels.forEach(function(tel){
+                    linksFones += '<a href="' + tel.link + '">' + tel.txt +'</a>';
+                });
+
+                mails.forEach(function(mail){
+                    linksEmails += '<a href="' + mail.link + '">' + mail.txt +'</a>';
+                });
+
+            panelRepres +=
+                '<div class="panel panel-default"> \
+                    <div class="panel-heading">' + repres.titulo + '</div> \
+                    <div class="panel-body"> \
+                        <p class="endereco-representante">' + repres.endereco + '</p> \
+                        <p class="telefones-representante">' + linksFones + '</p> \
+                        <p class="emails-representante"> ' + linksEmails + '</p> \
+                    </div> \
+                </div>';
+
         })
 
         represContainer.innerHTML = panelRepres;
