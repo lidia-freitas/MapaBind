@@ -44,26 +44,33 @@
 
     function montaUiRepresentantes() {
         var represContainer = document.getElementById('container-panels'),
-            panelRepres = '',
-            linksFones = '',
-            linksEmails = '';
+            panelRepres = '';
+
 
         this.forEach(function (repres) {
-            panelRepres += '<div class="panel panel-default"> \
-                <div class="panel-heading">' + repres.titulo + '</div> \
-                <div class="panel-body"> \
-                    <p class="endereco-representante">' + repres.endereco + '</p> \
-                    <p class="telefones-representante">' + linksFones + '</p> \
-                    <p class="emails-representante"> ' + linksEmails + '</p> \
-                </div> \
-            </div>';
+            var linksFones = '',
+                linksEmails = '',
+                tels = repres.telefones,
+                mails = repres.emails;
 
-            for(var i = 0; i < repres.telefones.length; i++){
-                linksFones += '<a href="' + repres.telefones[i].link + '">' + repres.telefones[i].txt +'</a>';
-            }
-            for(var i = 0; i < repres.emails.length; i++){
-                linksEmails += '<a href="' + repres.emails[i].link + '">' + repres.emails[i].txt +'</a>';
-            }
+                tels.forEach(function(tel){
+                    linksFones += '<a href="' + tel.link + '">' + tel.txt +'</a>';
+                });
+
+                mails.forEach(function(mail){
+                    linksEmails += '<a href="' + mail.link + '">' + mail.txt +'</a>';
+                });
+
+            panelRepres +=
+                '<div class="panel panel-default"> \
+                    <div class="panel-heading">' + repres.titulo + '</div> \
+                    <div class="panel-body"> \
+                        <p class="endereco-representante">' + repres.endereco + '</p> \
+                        <p class="telefones-representante">' + linksFones + '</p> \
+                        <p class="emails-representante"> ' + linksEmails + '</p> \
+                    </div> \
+                </div>';
+
         })
 
         represContainer.innerHTML = panelRepres;
