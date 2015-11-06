@@ -63,9 +63,9 @@
                 '<div class="panel panel-default"> \
                     <div class="panel-heading">' + repres.titulo + '</div> \
                     <div class="panel-body"> \
-                        <p class="endereco-representante">' + repres.endereco + '</p> \
-                        <p class="telefones-representante">' + linksFones + '</p> \
-                        <p class="emails-representante"> ' + linksEmails + '</p> \
+                        <p class="endereco-representante"> <i class="icon-pin"></i><span>' + repres.endereco + '</span></p> \
+                        <p class="telefones-representante"> <i class="icon-phone"></i><span>' + linksFones + '</span></p> \
+                        <p class="emails-representante"> <i class="icon-mail"></i><span>' + linksEmails + '</span></p> \
                     </div> \
                 </div>';
 
@@ -79,7 +79,7 @@
             tagOption = '';
 
         this.forEach(function (uf) {
-            tagEstado += '<span class="uf uf-'+ uf.sigla +'" data-value="'+ uf.sigla +'"></span>';
+            tagEstado += '<i class="uf icon-'+ uf.sigla +'" data-value="'+ uf.sigla +'"></i>';
             tagOption += '<option value="'+ uf.sigla +'">' + uf.nome + '</option>';
         });
 
@@ -121,7 +121,7 @@
 
     function setaElemAtivo(ufSelecionado) {
         var estadoAtual = document.getElementsByClassName('ativo'),
-            estadoSelecionado = document.getElementsByClassName('uf-' + ufSelecionado);
+            estadoSelecionado = document.getElementsByClassName('icon-' + ufSelecionado);
 
         if(estadoAtual.length){
             estadoAtual[0].classList.remove('ativo');
