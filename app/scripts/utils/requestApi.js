@@ -12,10 +12,10 @@ let RequestApi = Object.create(null, {
                 ajaxRequest = new XMLHttpRequest();
             }else if(window.ActiveXObject) {
                 try{
-                    ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+                    ajaxRequest = new ActiveXObject('Msxml2.XMLHTTP');
                 } catch(e){
                     try {
-                        ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP")
+                        ajaxRequest = new ActiveXObject('Microsoft.XMLHTTP')
                     } catch(ex) {
                         ajaxRequest = false;
                     }
@@ -37,12 +37,12 @@ let RequestApi = Object.create(null, {
                             if(ajaxRequest.status == 200 || ajaxRequest.status == 304){
                                 resolve(JSON.parse(ajaxRequest.response));
                             }else{
-                                alert("Problema na comunicação");
+                                alert('Problema na comunicação');
                                 reject(Error(ajaxRequest.statusText));
                             }
                         }
                     };
-                    ajaxRequest.open("GET", source, true);
+                    ajaxRequest.open('GET', source, true);
                     ajaxRequest.send(null);
                 }
             });
