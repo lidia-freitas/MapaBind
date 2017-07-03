@@ -1,0 +1,22 @@
+{
+  "name": "MapaBind",
+  "homepage": "https://github.com/lidia-freitas/MapaBind",
+  "authors": [
+    "lidia-freitas <lydiaoliveira@gmail.com>"
+  ],
+  "description": "Uma simples aplicação para mapa de representantes",
+  "main": "mapaBind.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "normalize-css": "^7.0.0",
+    "requirejs": "^2.3.3"
+  }
+}

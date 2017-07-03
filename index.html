@@ -7,18 +7,18 @@
         <meta name="description" content="uma simples aplicação para mapa de representantes">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="js/vendor/bootstrap-3.3.5-dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="js/vendor/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/mapabind.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
     </head>
     <body>
        <!--[if lt IE 8]>
             <p class="browserupgrade">Você está usando um navegador <strong>desatualizado</strong>. Por favor <a href="http://browsehappy.com/" target="_blank">atualize aqui seu navegador</a> para melhorar sua experiência no nosso site.</p>
-        <![endif]-->
+       <![endif]-->
 
-        <section class="mapa-representantes container">
+       <section class="mapa-representantes container">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="page-header">
@@ -36,8 +36,9 @@
                 <div  class="col-xs-5 col-md-offset-1">
                     <form role="form">
                         <fieldset class="form-group">
-                            <label for="dropdown">Selecione um estado</label>
+                            <label for="select-uf">Selecione um estado</label>
                             <select id="select-uf" class="form-control" name="dropdown">
+                                <option value="">Selecione</option>
                             </select>
                         </fieldset>
                     </form>
@@ -48,6 +49,24 @@
             </div>
         </section>
 
-        <script src="js/mapabind.js"></script>
+       <script src="src/utils/requestApi.js"></script>
+
+       <script src="src/repositorio/estadoRepositorio.js"></script>
+       <script src="src/repositorio/representanteRepositorio.js"></script>
+
+       <script src="src/servico/estadoServico.js"></script>
+       <script src="src/servico/representanteServico.js"></script>
+
+       <script src="src/ui/estadoUI.js"></script>
+       <script src="src/ui/representanteUI.js"></script>
+
+       <script src="src/ui/mapaBindUI.js"></script>
+
+
+       <script>
+            MapaBindUI.create();
+       </script>
+
+
     </body>
 </html>
