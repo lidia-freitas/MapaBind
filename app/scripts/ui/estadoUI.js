@@ -29,7 +29,7 @@ let EstadoUI = (function (argument) {
         let tagEstado = document.createElement('i');
         let tagOption = document.createElement('option');
 
-        tagEstado.classList.add('uf', 'icon-' + item.sigla);
+        tagEstado.classList.add('uf', 'mp-icon-' + item.sigla);
         tagEstado.dataset.value = item.sigla;
         tagOption.value = item.sigla;
         tagOption.innerText = item.nome;
@@ -87,7 +87,7 @@ let EstadoUI = (function (argument) {
             return;
         }
 
-        let estadoSelecionado = document.getElementsByClassName('icon-' + ufSelecionado);
+        let estadoSelecionado = document.getElementsByClassName('mp-icon-' + ufSelecionado);
 
         if (estadoAtual.length) {
             estadoAtual[0].classList.remove('ativo');

@@ -793,7 +793,7 @@
     "showQuickUse2": true,
     "showSVGs": true,
     "fontPref": {
-      "prefix": "icon-",
+      "prefix": "mp-icon-",
       "metadata": {
         "fontFamily": "mapabind",
         "majorVersion": 1,

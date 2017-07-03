@@ -51,8 +51,8 @@ let RepresentanteUI = (function (argument) {
         containerTelefones.classList.add('telefones-representante');
         containerEmails.classList.add('emails-representante');
 
-        iconTelefones.classList.add('icon-phone');
-        iconEmails.classList.add('icon-mail');
+        iconTelefones.classList.add('mp-icon-phone');
+        iconEmails.classList.add('mp-icon-mail');
 
         //cria os elementos html e seta os atributos e conteudos
         item.telefones.forEach(function (tel) {

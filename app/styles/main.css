@@ -4,13 +4,14 @@
     color: #000;
     padding: 0.2em 0;
 }
-.container-mapa{
+
+.container-mapa {
     width: 527px;
     height: 532px;
     position: relative;
 }
 
-.container-mapa:before{
+.container-mapa:before {
     font-family: 'mapabind';
     content: '\e91d';
     font-size: 531px;
@@ -22,7 +23,7 @@
 
 .endereco-representante,
 .telefones-representante,
-.emails-representante{
+.emails-representante {
     color: green;
     line-height: 24px;
     margin-bottom: 20px;
@@ -32,7 +33,7 @@
 
 .endereco-representante i,
 .telefones-representante i,
-.emails-representante i{
+.emails-representante i {
     display: inline-block;
     vertical-align: middle;
     font-size: 22px;
@@ -41,35 +42,38 @@
     margin-right: 10px;
     cursor: default;
 }
+
 .endereco-representante i:hover,
 .telefones-representante i:hover,
-.emails-representante i:hover{
-    color:#135C70;
+.emails-representante i:hover {
+    color: #135C70;
 }
 
 .endereco-representante span,
 .telefones-representante span,
-.emails-representante span{
+.emails-representante span {
     float: left;
     width: 360px;
 }
 
 .emails-representante a,
-.telefones-representante a{display: block;}
-
+.telefones-representante a {
+    display: block;
+}
 
 @font-face {
     font-family: 'mapabind';
-    src:  url('../fonts/mapabind.eot?nlasfq');
-    src:  url('../fonts/mapabind.eot?nlasfq#iefix') format('embedded-opentype'),
-    url('../fonts/mapabind.ttf?nlasfq') format('truetype'),
-    url('../fonts/mapabind.woff?nlasfq') format('woff'),
-    url('../fonts/mapabind.svg?nlasfq#mapabind') format('svg');
+    src: url('../fonts/mapabind.eot?8a9pt3');
+    src: url('../fonts/mapabind.eot?8a9pt3#iefix') format('embedded-opentype'),
+    url('../fonts/mapabind.ttf?8a9pt3') format('truetype'),
+    url('../fonts/mapabind.woff?8a9pt3') format('woff'),
+    url('../fonts/mapabind.svg?8a9pt3#mapabind') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="mp-icon-"], [class*=" mp-icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'mapabind' !important;
     speak: none;
     font-style: normal;
@@ -86,236 +90,289 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-[class^="icon-"]:hover, [class*=" icon-"]:hover, i.ativo{
+[class^="mp-icon-"]:hover, [class*=" mp-icon-"]:hover, i.ativo {
     color: #B52E55;
 }
 
-.icon-mapa:before {
+.mp-icon-mapa:before {
     content: "\e91d";
 }
 
-.icon-mail:before {
+.mp-icon-mail:before {
     content: "\e91a";
 }
-.icon-pin:before {
+
+.mp-icon-pin:before {
     content: "\e91b";
 }
-.icon-phone:before {
+
+.mp-icon-phone:before {
     content: "\e91c";
 }
 
-.icon-ac {
+.mp-icon-ac {
     top: 172px;
     left: 0px;
 }
-.icon-ac:before{
+
+.mp-icon-ac:before {
     content: "\e900";
     font-size: 51px;
 }
-.icon-al {
+
+.mp-icon-al {
     top: 192px;
     left: 485px;
 }
-.icon-al:before{
+
+.mp-icon-al:before {
     content: "\e901";
     font-size: 19px;
 }
-.icon-am {
+
+.mp-icon-am {
     top: 43px;
     left: 3px;
 }
-.icon-am:before{
+
+.mp-icon-am:before {
     content: "\e902";
     font-size: 162px;
 }
-.icon-ap {
+
+.mp-icon-ap {
     top: 14px;
     left: 259px;
     z-index: 1;
 }
-.icon-ap:before{
+
+.mp-icon-ap:before {
     content: "\e903";
     font-size: 77px;
 }
-.icon-ba {
+
+.mp-icon-ba {
     top: 190px;
     left: 372px;
 }
-.icon-ba:before{
+
+.mp-icon-ba:before {
     content: "\e904";
     font-size: 129px;
 }
-.icon-ce {
+
+.mp-icon-ce {
     top: 112px;
     left: 441px;
 }
-.icon-ce:before{
+
+.mp-icon-ce:before {
     content: "\e905";
     font-size: 65px;
 }
-.icon-es {
+
+.mp-icon-es {
     top: 318px;
     left: 434px;
     z-index: 1;
 }
-.icon-es:before{
+
+.mp-icon-es:before {
     content: "\e906";
     font-size: 44px;
 }
-.icon-go {
+
+.mp-icon-go {
     top: 246px;
     left: 281px;
 }
-.icon-go:before{
+
+.mp-icon-go:before {
     content: "\e907";
     font-size: 90px;
 }
-.icon-ma {
+
+.mp-icon-ma {
     top: 89px;
     left: 347px;
     z-index: 1;
 }
-.icon-ma:before{
+
+.mp-icon-ma:before {
     content: "\e908";
     font-size: 123px;
 }
-.icon-mg {
+
+.mp-icon-mg {
     top: 268px;
     left: 310px;
 }
-.icon-mg:before{
+
+.mp-icon-mg:before {
     content: "\e909";
     font-size: 116px;
 }
-.icon-ms {
+
+.mp-icon-ms {
     top: 307px;
     left: 212px;
 }
-.icon-ms:before{
+
+.mp-icon-ms:before {
     content: "\e90a";
     font-size: 92px;
 }
-.icon-mt {
+
+.mp-icon-mt {
     top: 174px;
     left: 166px;
 }
-.icon-mt:before{
+
+.mp-icon-mt:before {
     content: "\e90b";
     font-size: 142px;
 }
-.icon-pa {
+
+.mp-icon-pa {
     top: 37px;
     left: 204px;
 }
-.icon-pa:before{
+
+.mp-icon-pa:before {
     content: "\e90c";
     font-size: 166px;
 }
-.icon-pb {
+
+.mp-icon-pb {
     top: 156px;
     left: 477px;
 }
-.icon-pb:before{
+
+.mp-icon-pb:before {
     content: "\e90d";
     font-size: 26px;
 }
-.icon-pe {
+
+.mp-icon-pe {
     top: 173px;
     left: 444px;
 }
-.icon-pe:before{
+
+.mp-icon-pe:before {
     content: "\e90e";
     font-size: 27px;
 }
-.icon-pi {
+
+.mp-icon-pi {
     top: 114px;
     left: 380px;
     z-index: 1;
 }
-.icon-pi:before{
+
+.mp-icon-pi:before {
     content: "\e90f";
     font-size: 104px;
 }
-.icon-pr {
+
+.mp-icon-pr {
     top: 382px;
     left: 263px;
 }
-.icon-pr:before{
+
+.mp-icon-pr:before {
     content: "\e910";
     font-size: 52px;
 }
-.icon-rj {
+
+.mp-icon-rj {
     top: 359px;
     left: 396px;
     z-index: 1;
 }
-.icon-rj:before{
+
+.mp-icon-rj:before {
     content: "\e911";
     font-size: 28px;
 }
-.icon-rn {
+
+.mp-icon-rn {
     top: 139px;
     left: 479px;
 }
-.icon-rn:before{
+
+.mp-icon-rn:before {
     content: "\e912";
     font-size: 26px;
 }
-.icon-ro {
+
+.mp-icon-ro {
     top: 183px;
     left: 98px;
 }
-.icon-ro:before{
+
+.mp-icon-ro:before {
     content: "\e913";
     font-size: 73px;
 }
-.icon-rr {
+
+.mp-icon-rr {
     top: 0px;
     left: 124px;
 }
-.icon-rr:before{
+
+.mp-icon-rr:before {
     content: "\e914";
     font-size: 91px;
 }
-.icon-rs {
+
+.mp-icon-rs {
     top: 444px;
     left: 220px;
 }
-.icon-rs:before{
+
+.mp-icon-rs:before {
     content: "\e915";
     font-size: 89px;
 }
-.icon-sc {
+
+.mp-icon-sc {
     top: 428px;
     left: 273px;
 }
-.icon-sc:before{
+
+.mp-icon-sc:before {
     content: "\e916";
     font-size: 43px;
 }
-.icon-se {
+
+.mp-icon-se {
     top: 202px;
     left: 484px;
 }
-.icon-se:before{
+
+.mp-icon-se:before {
     content: "\e917";
     font-size: 28px;
 }
-.icon-sp {
+
+.mp-icon-sp {
     top: 344px;
     left: 285px;
     z-index: 1;
 }
-.icon-sp:before{
+
+.mp-icon-sp:before {
     content: "\e918";
     font-size: 70px;
 }
-.icon-to {
+
+.mp-icon-to {
     top: 144px;
     left: 316px;
     z-index: 1;
 }
-.icon-to:before{
+
+.mp-icon-to:before {
     content: "\e919";
-    font-size:109px;
+    font-size: 109px;
 }
