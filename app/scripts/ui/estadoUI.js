@@ -83,7 +83,10 @@ let EstadoUI = (function (argument) {
     function activate(ufSelecionado) {
         let estadoAtual = document.getElementsByClassName('ativo');
         if (!ufSelecionado) {
-            estadoAtual[0].classList.remove('ativo');
+            if(estadoAtual[0]){
+                estadoAtual[0].classList.remove('ativo');
+            }
+            selectContainer.value = '';
             return;
         }
 
